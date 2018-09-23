@@ -1,0 +1,4 @@
+python
+django
+django_rest_framework
+coresheaders
