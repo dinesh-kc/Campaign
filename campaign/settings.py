@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
-    'campaignapp'
+    'campaignapp',
+    'authenticate',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
@@ -136,7 +138,10 @@ MAILGUN_SERVER_NAME = 'sandbox8df75ce2a5e0472cb6df08d688e1426b.mailgun.org'
 
 
 REST_FRAMEWORK = {
-'DEFAULT_AUTHENTICATION_CLASSES': (
-'rest_framework.authentication.TokenAuthentication',
-)
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated', )
 }
+
