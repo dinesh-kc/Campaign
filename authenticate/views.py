@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from rest_framework import viewsets
+from rest_framework.permissions import AllowAny
 from django.contrib.auth import authenticate
 from rest_framework.authtoken.models import Token
 from rest_framework import serializers
@@ -13,6 +14,12 @@ from .serializers import UserSerializer,UserLoginSerializer
 class UserViewSet(viewsets.ModelViewSet):
 	queryset = User.objects.all()
 	serializer_class = UserSerializer
+
+	def get_permissions(self):
+		if self.request.method == 'POST':
+			return [AllowAny()]
+
+		return [permission() for permission in self.permission_classes]
 
 	def create(self,request):
 		print('create')
