@@ -1,4 +1,6 @@
-python
 django
 django_rest_framework
-coresheaders
+django-cors-headers
+drf-nested-routers
+django-mailgun
+json2html

@@ -14,8 +14,8 @@ class DeviceSerializer(serializers.Serializer):
 
 class SchedulingSerializer(serializers.Serializer):
 	type = serializers.CharField(max_length=120)
-	start_date = serializers.DateField()
-	end_date = serializers.DateField()
+	start_date = serializers.DateField(required=False)
+	end_date = serializers.DateField(required=False)
 
 class CampaignSerializer(serializers.Serializer):
 	name = serializers.CharField(max_length=120)
@@ -24,14 +24,14 @@ class CampaignSerializer(serializers.Serializer):
 	max_age = serializers.IntegerField()
 	gender = serializers.CharField(max_length=120)
 	price = serializers.FloatField()
-	interest_type = serializers.IntegerField()
+	interest_type = serializers.CharField()
 	interest_bundle_id = serializers.IntegerField(required=False)
 	unique_visitors = serializers.IntegerField()
 	price_per_day = serializers.IntegerField()
 	location = LocationSerializer()
 	device = DeviceSerializer()
 	scheduling = SchedulingSerializer()
-	interests = serializers.ListField(required=False)
+	interest = serializers.ListField(required=False)
 
 
 

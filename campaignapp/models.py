@@ -28,8 +28,8 @@ class Interest(BaseModel):
 
 	
 INTEREST_TYPE = (
-	('BUNDLE',1),
-	('PRECISE',2)
+	(1, 'BUNDLE'),
+	(2, 'PRECISE')
 	)
 
 class Address(BaseModel):
@@ -45,8 +45,8 @@ class Devices(BaseModel):
 
 class Scheduling(BaseModel):
 	type = models.CharField(max_length=120)
-	start_date = models.DateField()
-	end_date = models.DateField()
+	start_date = models.DateField(null=True, blank=True)
+	end_date = models.DateField(null=True, blank=True)
 	
 class Campaign(BaseModel):
 	interest_type = models.IntegerField(choices=INTEREST_TYPE)

@@ -127,3 +127,16 @@ STATIC_URL = '/static/'
 
 
 CORS_ORIGIN_ALLOW_ALL = True
+
+
+EMAIL_BACKEND = 'django_mailgun.MailgunBackend'
+MAILGUN_ACCESS_KEY = '850f1217ccdfe77143a82b6722afbfa1-0e6e8cad-b5f0f92a'
+MAILGUN_SERVER_NAME = 'sandbox8df75ce2a5e0472cb6df08d688e1426b.mailgun.org'
+
+
+
+REST_FRAMEWORK = {
+'DEFAULT_AUTHENTICATION_CLASSES': (
+'rest_framework.authentication.TokenAuthentication',
+)
+}
